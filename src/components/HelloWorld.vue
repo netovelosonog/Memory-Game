@@ -1,5 +1,5 @@
 <template>
-  <v-container class="my-5" style="background-color:rgb(53 73 94); padding:2%">
+  <v-container class="my-5" style="background-color:rgb(53 73 94); padding:2%; border-radius: 6px;">
     <v-row>
       <v-card elevation="3" min-width="100%" min-height="50px" color="rgb(65 184 131)" style="display:flex; align-items: center;">
         <h4 class="mx-5">Timer: {{ tempo }}</h4>
@@ -45,7 +45,7 @@ export default {
           card.flipped = true;
         });
         this.allowTouch = true;
-      }, 5000);
+      }, 6000);
 
       // Início do contador regressivo
       let timer = setInterval(() => {
@@ -88,7 +88,7 @@ export default {
 
           const firstCard = this.cards[this.flippedCards[0]];
           const secondCard = this.cards[this.flippedCards[1]];
-
+          
           this.allowTouch = false;
           if (firstCard.image.id === secondCard.image.id) {
             this.allowTouch = true;
