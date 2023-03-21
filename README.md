@@ -1,5 +1,7 @@
 # jogo-da-memoria
+Jogo da memória usando vue, sem api com contador regresivo alerta de vitorias e alerta de derrota
 Memory-Game
+Memory game using vue, without api with countdown timer alert for wins and alert for defeat
 ## Project setup
 ```
 npm install
