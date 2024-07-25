@@ -1,10 +1,12 @@
 <template>
   <v-container class="my-5" style="background-color:rgb(53 73 94); padding:2%; border-radius: 6px;">
     <v-row>
-      <v-card elevation="3" min-width="100%" min-height="50px" color="rgb(65 184 131)" style="display:flex; align-items: center;">
+      <v-card elevation="3" min-width="100%" min-height="50px" color="rgb(65 184 131)"
+        style="display:flex; align-items: center;">
         <h4 class="mx-5">Timer: {{ tempo }}</h4>
-        <v-spacer/>
-        <v-btn color="rgb(53 73 94)" class="mx-5" @click="resetGame()"><span style="color:white;">Reiniciar</span></v-btn>
+        <v-spacer />
+        <v-btn color="rgb(53 73 94)" class="mx-5" @click="resetGame()"><span
+            style="color:white;">Reiniciar</span></v-btn>
       </v-card>
     </v-row>
     <v-row class="text-center">
@@ -19,18 +21,18 @@
     </v-row>
   </v-container>
 </template>
-    
+
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'MemoryGame',
   data() {
     return {
       cards: [],
       flippedCards: [],
       allowTouch: false,
       gameOver: false,
-      remainingTime: 300, // 5 minutos em segundos
-      tempo:'5:00',
+      remainingTime: 305,
+      tempo: '05:05',
       timerId: null,
     };
   },
@@ -56,7 +58,7 @@ export default {
           alert("Tempo esgotado. Tente novamente!");
           this.resetGame();
         }
-      }, 1000);
+      }, 1001);
     },
 
     countdown() {
@@ -67,16 +69,17 @@ export default {
     },
 
     finishGame() {
-  this.gameOver = true;
-  this.cards.forEach((card) => {
-    card.flipped = true;
-  });
-  alert("Parabéns! Você venceu o jogo!");
+      this.gameOver = true;
+      this.cards.forEach((card) => {
+        card.flipped = true;
+      });
+      alert("Parabéns! Você venceu o jogo!");
 
-  // Código adicionado para exibir o tempo decorrido
-  clearInterval(this.timerId);
-  this.tempo = "00:00";
-},
+      // Código adicionado para exibir o tempo decorrido
+      clearInterval(this.timerId);
+      this.tempo = "00:00";
+      this.resetGame();
+    },
 
     flipCard(id, index) {
       if (this.allowTouch && !this.cards[index].found && !this.cards[index].clicked) {
@@ -88,7 +91,7 @@ export default {
 
           const firstCard = this.cards[this.flippedCards[0]];
           const secondCard = this.cards[this.flippedCards[1]];
-          
+
           this.allowTouch = false;
           if (firstCard.image.id === secondCard.image.id) {
             this.allowTouch = true;
@@ -151,12 +154,12 @@ export default {
       { id: "4", link: "https://picsum.photos/200/200?random=4" },
       { id: "5", link: "https://picsum.photos/200/200?random=5" },
       { id: "6", link: "https://picsum.photos/200/200?random=6" },
-      { id: "7", link: "https://picsum.photos/200/200?random=7" },
-      { id: "8", link: "https://picsum.photos/200/200?random=8" },
-      { id: "9", link: "https://picsum.photos/200/200?random=9" },
-      { id: "10", link: "https://picsum.photos/200/200?random=10" },
-      { id: "11", link: "https://picsum.photos/200/200?random=11" },
-      { id: "12", link: "https://picsum.photos/200/200?random=12" },
+      // { id: "7", link: "https://picsum.photos/200/200?random=7" },
+      // { id: "8", link: "https://picsum.photos/200/200?random=8" },
+      // { id: "9", link: "https://picsum.photos/200/200?random=9" },
+      // { id: "10", link: "https://picsum.photos/200/200?random=10" },
+      // { id: "11", link: "https://picsum.photos/200/200?random=11" },
+      // { id: "12", link: "https://picsum.photos/200/200?random=12" },
     ];
 
     this.cards = images.concat(images).map((image) => ({
@@ -170,7 +173,7 @@ export default {
   },
 };
 </script>
-  
+
 <style scoped>
 .memory-card {
   position: relative;

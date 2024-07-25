@@ -20,19 +20,19 @@
     </v-app-bar>
 
     <v-main>
-      <HelloWorld/>
+      <MemoryGame/>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import MemoryGame from './components/MemoryGame';
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+    MemoryGame,
   },
 
   data: () => ({
